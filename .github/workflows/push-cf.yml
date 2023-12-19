@@ -26,10 +26,7 @@ jobs:
         run: |
           curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
           ibmcloud --version
-          ibmcloud update
           ibmcloud config --check-version=false
-
-          curl -fsSL https://cli.run.pivotal.io/stable?release=linux64-binary | tar -zx && sudo mv cf /usr/local/bin/cf
         shell: bash
       - name: Install CF plugin
         run: ibmcloud cf install -f
