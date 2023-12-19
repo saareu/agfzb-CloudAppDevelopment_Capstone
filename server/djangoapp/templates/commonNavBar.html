@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid justify-content-start">
+      <a class="navbar-brand" href="/djangoapp">Best Cars</a>
+    </div>
+    <div class="container-fluid align-items-center justify-content-center ">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/djangoapp">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/djangoapp/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/djangoapp/contact">Contact</a>
+          </li>
+        </ul>
+    </div>
+    <div class="container-fluid justify-content-end">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            {% if user.is_authenticated %}
+            <li><button type="button" class="btn btn-outline-primary">Hello {{ user.username }}</button></li>
+            <p>&nbsp;&nbsp;</p>
+            <li><a href="/djangoapp/logout"><button type="button" class="btn btn-primary">Logout</button></a></li>
+            {% else %}
+            <li><a href="/djangoapp/login"><button type="button" class="btn btn-outline-primary me-2">Login</button></a></li>
+            <p>&nbsp;&nbsp;</p>
+            <li><a href="/djangoapp/registration"><button type="button" class="btn btn-primary">Sign-up</button></a></li>
+            {% endif %}
+        </ul>
+    </div>
+  </nav>

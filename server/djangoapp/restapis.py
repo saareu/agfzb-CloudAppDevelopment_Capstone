@@ -29,6 +29,3 @@ from requests.auth import HTTPBasicAuth
 # def analyze_review_sentiments(text):
 # - Call get_request() with specified arguments
 # - Get the returned sentiment label such as Positive or Negative
-
-
-

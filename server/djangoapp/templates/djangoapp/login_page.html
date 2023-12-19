@@ -17,11 +17,20 @@
         <!--Add a nav bar here -->
         {% include 'commonNavBar.html' %}
 
-        <h3> Add the index page of the dealership here </h3>
-        <!--Add a dealer table here -->
-
-        Test commit for CICD pipeline
-
+        <!-- Login Form -->
+        <h2>This needs to be styled</h2>
+        <form action="{% url 'djangoapp:login' %}"  method="post">
+            {% csrf_token %}
+            <div class="container">
+            <label for="username"><b>User Name</b></label>
+            <input type="text" placeholder="Enter User Name: " name="username" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password: " name="psw" required>
+            <div>
+                <button class="button" type="submit">Login</button>
+            </div>
+            </div>
+        </form>
     </body>
 
 </html>
