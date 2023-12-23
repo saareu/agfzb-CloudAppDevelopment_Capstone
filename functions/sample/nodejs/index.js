@@ -17,14 +17,13 @@
  }
  
  function getDbs(cloudant) {
-   cloudant
-     .getAllDbs()
-     .then((body) => {
-       body.forEach((db) => {
-         dbList.push(db);
-       });
-     })
-     .catch((err) => {
-       console.log(err);
-     });
- }
+    return new Promise((resolve, reject) => {
+        cloudant.db.list()
+            .then(body => {
+                resolve({ dbs: body });
+            })
+            .catch(err => {
+                reject({ err: err });
+            });
+    });
+}

@@ -2,7 +2,7 @@ import requests
 import json
 # import related models here
 from requests.auth import HTTPBasicAuth
-
+# dealer_doc = dealer
 
 # Create a `get_request` to make HTTP GET requests
 # e.g., response = requests.get(url, params=params, headers={'Content-Type': 'application/json'},
@@ -17,6 +17,7 @@ from requests.auth import HTTPBasicAuth
 # def get_dealers_from_cf(url, **kwargs):
 # - Call get_request() with specified arguments
 # - Parse JSON results into a CarDealer object list
+
 
 
 # Create a get_dealer_reviews_from_cf method to get reviews by dealer id from a cloud function

@@ -91,10 +91,31 @@ def registration_request(request):
             return render(request, 'djangoapp/registration.html', context)
 
 # Update the `get_dealerships` view to render the index page with a list of dealerships
+from django.shortcuts import render
+import requests
+
 def get_dealerships(request):
     context = {}
     if request.method == "GET":
-        return render(request, 'djangoapp/index.html', context)
+        # Replace the URL with the newly copied endpoint URL
+        endpoint_url = "https://saareu12-3000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealerships/get/"
+        
+        # Make a GET request to the endpoint
+        response = requests.get(endpoint_url)
+
+        # Check if the request was successful (status code 200)
+        if response.status_code == 200:
+            # Assuming the response contains JSON data
+            data = response.json()
+
+            # Update the context with the retrieved data
+            context['data'] = data
+        else:
+            # Handle the case where the request was not successful
+            context['error'] = f"Error: {response.status_code}"
+
+    return render(request, 'djangoapp/index.html', context)
+
 
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
